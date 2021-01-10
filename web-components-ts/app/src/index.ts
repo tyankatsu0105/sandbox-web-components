@@ -10,3 +10,4 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
 import "./time-formatted";
 import "./user-card";
 import "./custom-menu";
+import "./custom-dialog";

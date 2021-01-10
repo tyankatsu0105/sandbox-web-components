@@ -42,6 +42,26 @@
     </ul>
   </div>
 </template>
+
+
+<custom-dialog>
+  Hello!
+</custom-dialog>
+
+<template id="dialog">
+  <style>
+    :host {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      border: 1px solid red;
+      padding: 10px;
+    }
+  </style>
+  <slot></slot>
+</template>
   
 </body>
 </html>
