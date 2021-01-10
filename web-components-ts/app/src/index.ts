@@ -7,23 +7,6 @@
  * ES5をサポートしていないブラウザでも使えるようにするために使用
  */
 import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
-
-class TimeFormatted extends HTMLElement {
-
-  connectedCallback() {
-    let date = new Date(this.getAttribute('datetime') || Date.now());
-
-    this.innerHTML = new Intl.DateTimeFormat("default", {
-      year: this.getAttribute('year') || undefined,
-      month: this.getAttribute('month') || undefined,
-      day: this.getAttribute('day') || undefined,
-      hour: this.getAttribute('hour') || undefined,
-      minute: this.getAttribute('minute') || undefined,
-      second: this.getAttribute('second') || undefined,
-      timeZoneName: this.getAttribute('time-zone-name') || undefined,
-    }).format(date);
-  }
-
-}
-
-customElements.define("time-formatted", TimeFormatted);
+import "./time-formatted";
+import "./user-card";
+import "./custom-menu";

@@ -11,6 +11,37 @@
   hour="numeric" minute="numeric" second="numeric"
   time-zone-name="short"
 ></time-formatted>
+
+<user-card>
+  <span slot="username">John Smith</span>
+  <span slot="username">John Smith</span>
+  <span slot="birthday">01.01.2001</span>
+</user-card>
+
+<custom-menu>
+  <span slot="title">Candy menu</span>
+  <li slot="item">Lollipop</li>
+  <li slot="item">Fruit Toast</li>
+  <li slot="item">Cup Cake</li>
+</custom-menu>
+
+<template id="tmpl">
+  <style>
+    .menu.closed .menu__list {
+      display: none;
+    }
+
+    .menu__title {
+      cursor: pointer;
+    }
+  </style>
+  <div class="menu">
+    <slot class="menu__title" name="title" class="title"></slot>
+    <ul class="menu__list">
+      <slot name="item"></slot>
+    </ul>
+  </div>
+</template>
   
 </body>
 </html>
