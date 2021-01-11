@@ -10,7 +10,7 @@ export class ButtonLink {
 
   render() {
     return (
-      <a href={this.href}>
+      <a href={this.href} target="_blank">
         <slot></slot>
       </a>
     );
