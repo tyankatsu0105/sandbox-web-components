@@ -3,10 +3,13 @@ import Case from 'case';
 import { storiesOf } from '@storybook/html';
 
 /**
+ * @param {*} prop
+ * @param {*} controlOptions
  * Given a property (from stencil Component.properties) and an optional
  * controlOptions object generates a control which can be used to
  * dynamically update the properties of the component.
  */
+
 function getControlForProp(prop, controlOptions) {
   let defaultVal = '';
   let control = {
@@ -75,9 +78,12 @@ function getControlForProp(prop, controlOptions) {
 }
 
 /**
+ * @param {*} Component
+ * @param {*} controlOptions
  * Given a stencil Component and control options, returns an dictionary of
  * all the properties and default values.
  */
+
 function getPropsWithControlValues(Component, controlOptions) {
   let controls = { args: {}, argTypes: {} };
   Object.keys(Component.properties || {}).forEach(key => {
@@ -101,6 +107,7 @@ function getPropsWithControlValues(Component, controlOptions) {
 }
 
 /**
+ * @param {{title: *, description: *}} param
  * Template used to render a single stencil component. To use this template
  * do something like the following code snippet:
  *
@@ -126,8 +133,11 @@ function getStencilTemplate({ title, description }) {
 }
 
 /**
+ * @param {*} el
+ * @param {*} elements
  * Generates DOM nodes from states to render.
  */
+
 function createNodes(el, elements) {
   if (elements && elements.length > 0) {
     elements.forEach(({ tag, innerText, props, children }) => {
@@ -149,6 +159,8 @@ function createNodes(el, elements) {
 }
 
 /**
+ * @param {{Component: *, notes: *, states: *, args: *, argTypes: *}} param
+ * @param {*} stories
  * Generates an interactive controls-enabled story for a stencil Component.
  * For any additional states, a static rendering is generated with
  * the given state (see existing components for examples).
@@ -251,6 +263,7 @@ function createStencilStory({ Component, notes, states, args = {}, argTypes = {}
 }
 
 /**
+ * @param {*} _module
  * Given a module, iterates over the exports and returns the first
  * one which looks like a stencil component (using duck typing).
  */
@@ -267,6 +280,7 @@ function getComponentFromExports(_module) {
 }
 
 /**
+ * @param {*} notes
  * Cleans the notes, which should be in markdown format.
  * The markdown parser used by the notes addon is not the best, so
  * we have to fix some issues before rendering.
@@ -278,7 +292,11 @@ function cleanNotes(notes) {
   }
 }
 
-// Gets all stories and check for specific configuration to add to each story
+/**
+ * @param {*} componentsCtx
+ * @param {*} storiesCtx
+ * Gets all stories and check for specific configuration to add to each story
+ */
 function buildGeneratorConfigs(componentsCtx, storiesCtx) {
   const componentRoutes = componentsCtx.keys();
   const storyRoutes = storiesCtx.keys();
@@ -326,6 +344,9 @@ function buildGeneratorConfigs(componentsCtx, storiesCtx) {
 }
 
 /**
+ * @param {*} name
+ * @param {*} componentsCtx
+ * @param {*} storiesCtx
  * Iterates all of the stencil contexts and build a "config" object
  * which is used to generate the individual stories.
  */
